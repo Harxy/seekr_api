@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe Employer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Employer, type: :model do
+  it { is_expected.to have_many :jobs }
 end
