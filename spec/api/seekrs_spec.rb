@@ -8,7 +8,7 @@ describe 'get the employers from the endpoint' do
   end
 end
 
-describe 'get the employers from the endpoint' do
+describe 'get the jobseekers from the endpoint' do
   it 'successfully' do
     Jobseeker.create(name: "Bob Monkhouse", email: "bob@bob.com", location:"afterlife")
     get '/api/jobseekers'
@@ -17,10 +17,19 @@ describe 'get the employers from the endpoint' do
 end
 
 
-describe 'get the employers from the endpoint' do
+describe 'get the jobs from the endpoint' do
   it 'successfully' do
     Job.create(title: "Dream Makerneer", description: "Ptolemy", start_date:"13/04/2016", duration:"5 weeks", hours: "7", location: "a bit too close", wage: 8.90)
     get '/api/jobs'
     expect(latest_response["title"]).to eq "Dream Makerneer"
+  end
+end
+
+describe 'get an individual jobseeker from the end point/id' do
+  it 'successfully' do
+    jobseeker = Jobseeker.create(name: "Bob Monkhouse", email: "bob@bob.com", location:"afterlife")
+    string = '/api/jobseekers/' + jobseeker.id.to_s
+    get string
+    expect(last_response.body).to include "Bob Monkhouse"
   end
 end

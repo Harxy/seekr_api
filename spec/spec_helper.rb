@@ -18,7 +18,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 module RSpecHelpers
   def latest_response
-    JSON.parse(last_response.body).sample
+    JSON.parse(last_response.body).first
   end
 end
 
