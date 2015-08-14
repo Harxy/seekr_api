@@ -4,5 +4,16 @@ module Api
       jobs = Job.all
       render json: jobs
     end
+
+    def create
+      job = Job.new(job_params)
+      render json: { status: 'success' }.to_json if job.save
+    end
+
+    private
+
+    def job_params
+      params.permit(:title, :description, :start_date, :duration, :hours, :location, :wage, :employer_id)
+    end
   end
 end
