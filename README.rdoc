@@ -6,41 +6,41 @@ Endpoints
 
 ###GET
 
-``` /api/employers ```
+/api/employers
 
   #### returns
   all employers
 
-``` /api/jobs ```
+/api/jobs
 
   #### returns
   all jobs
 
-``` /api/jobs/:id ```
+/api/jobs/:id
 
   #### returns
   a single job, accessed by ID
 
-``` /api/jobseekers ```
+/api/jobseekers
 
   #### returns
   all jobseekers
 
-``` /api/jobseekers/:id ```
+/api/jobseekers/:id
   ####returns
   a single jobseeker, accessed by ID
 
 ### post
 
-``` /api/employers ```
+/api/employers
 
   #### request
   The request requires the following parameters:
 
-  ``` string   "title"
+  string   "title"
   string   "description"
   date     "start_date"
   string   "duration"
   string   "hours"
   string   "location"
-  decimal  "wage" ```
+  decimal  "wage"
