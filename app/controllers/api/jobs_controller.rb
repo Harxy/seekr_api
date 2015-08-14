@@ -15,6 +15,12 @@ module Api
       render json: job
     end
 
+    def destroy
+      job = Job.find(params[:id])
+      job.destroy
+      render json: { status: 'successfully deleted' }.to_json if job.destroy
+    end
+
     private
 
     def job_params

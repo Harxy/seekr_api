@@ -50,4 +50,14 @@ describe 'can create a new job by posting to an end point' do
     get '/api/jobs'
     expect(latest_response["title"]).to eq "Dream Makerneer"
   end
+
+describe 'can delete a job' do
+  it 'successfully' do
+    job = Job.create(title: "Dream Makerneer", description: "Ptolemy", start_date:"13/04/2016", duration:"5 weeks", hours: "7", location: "a bit too close", wage: 8.90)
+    string = '/api/jobs/' + job.id.to_s
+    delete string
+    get '/api/jobs'
+    expect(latest_response).to eq nil
+    end
+  end
 end
