@@ -12,3 +12,5 @@ Jobseeker.create(name:"Rob", email:"rob@gmail.com", location:"lovelyville")
 
 Employer.create(name:"Makers", description:"We love testing!", industry:"making developers who test", website:"www.makersacademy.com")
 Employer.create(name:"General Assembly", description:"We train seals to hit keyboards", industry:"flooding the market with poor programmers", website:"www.wecantmakeawebsite.clom")
+
+Job.create(title: 'Dream Maker', description: 'Ptolmememe', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97)

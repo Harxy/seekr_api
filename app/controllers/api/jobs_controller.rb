@@ -28,6 +28,9 @@ module Api
       end
     end
 
+    def jobseekers_show
+    end
+
     private
 
     def job_params

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'get the employers from the endpoint' do
   it 'successfully' do
     create :employer
-    get '/api/employers'
+    get api_employers_path
     expect(latest_response['name']).to eq 'Makers'
   end
 end
@@ -11,7 +11,7 @@ end
 describe 'get the jobseekers from the endpoint' do
   it 'successfully' do
     create :jobseeker
-    get '/api/jobseekers'
+    get api_jobseekers_path
     expect(latest_response['name']).to eq 'Bob Monkhouse'
   end
 end
@@ -19,7 +19,7 @@ end
 describe 'get the jobs from the endpoint' do
   it 'successfully' do
     create :job
-    get '/api/jobs'
+    get api_jobs_path
     expect(latest_response['title']).to eq 'Dream Makerneer'
   end
 end
@@ -27,8 +27,7 @@ end
 describe 'get an individual jobseeker from the end point/id' do
   it 'successfully' do
     jobseeker = create :jobseeker
-    string = '/api/jobseekers/' + jobseeker.id.to_s
-    get string
+    get api_jobseeker_path(jobseeker)
     expect(last_response.body).to include 'Bob Monkhouse'
   end
 end
@@ -36,8 +35,7 @@ end
 describe 'get an individual job from the end point/id' do
   it 'successfully' do
     job = create :job
-    string = '/api/jobs/' + job.id.to_s
-    get string
+    get api_jobs_path(job)
     expect(last_response.body).to include 'Ptolemy'
   end
 end
@@ -45,15 +43,15 @@ end
 describe 'can create a new job by posting to an end point' do
   it 'successfully' do
     employer = create :employer
-    post '/api/jobs', { title: 'Dream Makerneer', description: 'Ptolemy', start_date: '13/04/2016', duration: '5 weeks', hours: '7', location: 'a bit too close', wage: 8.90, employer_id: employer.id }.to_json, 'CONTENT_TYPE' => 'application/json'
-    get '/api/jobs'
+    post api_jobs_path, attributes_for(:job).to_json, 'CONTENT_TYPE' => 'application/json'
+    get api_jobs_path
     expect(latest_response['title']).to eq 'Dream Makerneer'
   end
 
   it 'only if a title is entered' do
     employer = create :employer
-    post '/api/jobs', { title: '', description: 'Ptolemy', start_date: '13/04/2016', duration: '5 weeks', hours: '7', location: 'a bit too close', wage: 8.90, employer_id: employer.id }.to_json, 'CONTENT_TYPE' => 'application/json'
-    get '/api/jobs'
+    post api_jobs_path, attributes_for(:job, title: '').to_json, 'CONTENT_TYPE' => 'application/json'
+    get api_jobs_path
     expect(latest_response).to eq nil
   end
 end
@@ -61,9 +59,8 @@ end
 describe 'can delete a job' do
   it 'successfully' do
     job = create :job
-    string = '/api/jobs/' + job.id.to_s
-    delete string
-    get '/api/jobs'
+    delete '/api/jobs/' + job.id.to_s
+    get api_jobs_path
     expect(latest_response).to eq nil
   end
 end
