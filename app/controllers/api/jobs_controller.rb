@@ -7,7 +7,11 @@ module Api
 
     def create
       job = Job.new(job_params)
-      render json: { status: 'success' }.to_json if job.save
+      if job.save
+        render json: { status: 'success' }.to_json
+      else
+        render json: {status: 'failed', error: job.errors.first}
+      end
     end
 
     def show
@@ -17,8 +21,11 @@ module Api
 
     def destroy
       job = Job.find(params[:id])
-      job.destroy
-      render json: { status: 'successfully deleted' }.to_json if job.destroy
+      if job.destroy
+        render json: { status: 'successfully deleted' }.to_json if job.destroy
+      else
+        render json: {status: 'deletion failed', error: job.errors.first}
+      end
     end
 
     private
