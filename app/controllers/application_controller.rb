@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::API
-  protect_from_forgery
   after_filter :set_access_control_headers
   skip_before_action :verify_authenticity_token
 
