@@ -30,9 +30,9 @@ Endpoints
   ####returns
   a single jobseeker, accessed by ID
 
-### post
+### POST
 
-/api/employers
+/api/jobs
 
   #### request
   The request requires the following parameters:
@@ -44,3 +44,20 @@ Endpoints
   string   "hours"
   string   "location"
   decimal  "wage"
+
+  #### returns
+
+  {status: 'success'} if a job was successfully saved
+  {status: 'failed', error: 'error message'} if the job was not successfully saved
+
+
+### DELETE
+
+ /api/jobs/:id
+ 
+ Send an empty DELETE request to the end point to delete that job
+
+ #### returns
+
+ {status: 'successfully deleted'} if a job was successfully deleted
+ {status: 'deletion failed', error: 'error message'} if the job was not successfully deleted
