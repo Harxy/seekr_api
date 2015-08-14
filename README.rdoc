@@ -2,4 +2,45 @@ API GUIDE
 =========
 Endpoints
 ---------
-  The API end points are as follows
+  The API end points are as follows:
+
+###GET
+
+```/api/employers```
+
+  ####returns
+  all employers
+
+```/api/jobs```
+
+  ####returns
+  all jobs
+
+```/api/jobs/:id```
+
+  ####returns
+  a single job, accessed by ID
+
+```/api/jobseekers```
+
+  ####returns
+  all jobseekers
+
+```/api/jobseekers/:id```
+  ####returns
+  a single jobseeker, accessed by ID
+
+###post
+
+```/api/employers```
+
+  ####request
+  The request requires the following parameters:
+
+  ```string   "title"
+  string   "description"
+  date     "start_date"
+  string   "duration"
+  string   "hours"
+  string   "location"
+  decimal  "wage"```
