@@ -10,6 +10,11 @@ module Api
       render json: { status: 'success' }.to_json if job.save
     end
 
+    def show
+      job = Job.find(params[:id])
+      render json: job
+    end
+
     private
 
     def job_params
