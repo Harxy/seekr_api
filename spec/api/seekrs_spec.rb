@@ -64,3 +64,12 @@ describe 'can delete a job' do
     expect(latest_response).to eq nil
   end
 end
+
+describe 'can assign a user as an employee' do
+  it 'successfully' do
+    user = create :user
+    employer = create :employer
+    post '/api/users/set_employer/', {user_id: user.id.to_s, employer_id: user.id.to_s}.to_json, 'CONTENT_TYPE' => 'application/json'
+    expect(user.employer_id).to not_be nil
+  end
+end

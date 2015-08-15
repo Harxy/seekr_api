@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if sign_in(user)
       redirect_to root_path
     else
-      render :new
+      render json: {status: 'failed', error: user.errors.first}.to_json
     end
   end
 
@@ -25,4 +25,3 @@ class SessionsController < ApplicationController
     params.require(:session).permit(:email, :password)
   end
 end
-

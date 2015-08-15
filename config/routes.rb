@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
   root to: 'api/employers#index'
   namespace :api do
+    resource :session, only: [:new, :create, :destroy]
+    resources :users, only: [:new, :create]
     resources :employers
     resources :jobseekers
     resources :jobs
     get 'jobs/:id/jobseekers', :to => 'jobs#jobseekers_show'
+    post 'users/set_employer', :to => 'users#set_employer'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
