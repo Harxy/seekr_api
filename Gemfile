@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rspec-rails'
 gem 'rails-api'
 gem 'rack-cors'
+gem 'monban'
+gem 'monban-generators'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
