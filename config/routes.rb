@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :jobs
     get 'jobs/:id/jobseekers', :to => 'jobs#jobseekers_show'
     post 'users/set_employer', :to => 'users#set_employer'
+    post 'users/set_jobseeker', :to => 'users#set_jobseeker'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

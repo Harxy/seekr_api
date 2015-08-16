@@ -65,11 +65,18 @@ describe 'can delete a job' do
   end
 end
 
-describe 'can assign a user as an employee' do
-  it 'successfully' do
+describe 'can assign a user' do
+  it 'as an employer' do
     user = create :user
     employer = create :employer
-    post '/api/users/set_employer/', {user_id: user.id.to_s, employer_id: user.id.to_s}.to_json, 'CONTENT_TYPE' => 'application/json'
-    expect(user.employer_id).to not_be nil
+    post '/api/users/set_employer/', {user_id: user.id.to_s, employer_id: employer.id.to_s}.to_json, 'CONTENT_TYPE' => 'application/json'
+    expect(latest_response).to include 'update success'
+  end
+
+  it 'as a jobseeker' do
+    user = create :user
+    jobseeker = create :jobseeker
+    post '/api/users/set_jobseeker/', {user_id: user.id.to_s, jobseeker_id: jobseeker.id.to_s}.to_json, 'CONTENT_TYPE' => 'application/json'
+    expect(latest_response).to include 'update success'
   end
 end

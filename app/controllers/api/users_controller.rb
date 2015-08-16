@@ -15,8 +15,20 @@ module Api
 
     def set_employer
       user = User.find(employer_params['user_id'])
-      user.update_attribute(:employer_id, employer_params['employer_id'])
-      render json: { status: 'success' }.to_json
+      if user.update_attribute(:employer_id, employer_params['employer_id'])
+        render json: { status: 'update success' }.to_json
+      else
+        render json: { status: 'update failed', error: user.errors.first }.to_json
+      end
+    end
+
+    def set_jobseeker
+      user = User.find(jobseeker_params['user_id'])
+      if user.update_attribute(:jobseeker_id, jobseeker_params['jobseeker_id'])
+        render json: { status: 'update success' }.to_json
+      else
+        render json: { status: 'update failed', error: user.errors.first }.to_json
+      end
     end
 
     private
@@ -27,6 +39,10 @@ module Api
 
     def employer_params
       params.permit(:user_id, :employer_id)
+    end
+
+    def jobseeker_params
+      params.permit(:user_id, :jobseeker_id)
     end
   end
 end
