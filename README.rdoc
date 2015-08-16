@@ -15,13 +15,13 @@ Creation of a User
 
     3. SUPER IMPORTANT. The user must then be linked either to the created jobseeker or the created employer. This is done from the endpoint:
 
-      |       FOR       |    END POINT   |     EXAMPLE REQUEST CONTENT      |
-        (for jobseeker)   /api/jobseeker    {user_id: 3, jobseeker_id: 6 }
-        (for employer)    /api/employer     {user_id: 3, employer_id: 8}
+      |       FOR       |      END POINT     |     EXAMPLE REQUEST CONTENT      |
+        (for jobseeker)   /api/set_jobseeker    {user_id: 3, jobseeker_id: 6 }
+        (for employer)    /api/set_employer     {user_id: 3, employer_id: 8}
 
     This will then make the user either a jobseeker or an employer. This cannot be changed once it has been done.
 
-    
+
 
 
 Endpoints
