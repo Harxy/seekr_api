@@ -1,7 +1,13 @@
 require 'rails_helper'
 
-describe 'get the employers from the endpoint' do
-  it 'successfully' do
+describe 'the employers endpoint' do
+  it 'can successfully create' do
+    post api_employers_path, attributes_for(:employer).to_json, 'CONTENT_TYPE' => 'application/json'
+    get api_employers_path
+    expect(latest_response['name']).to eq 'Makers'
+  end
+
+  it 'can successfully get' do
     create :employer
     get api_employers_path
     expect(latest_response['name']).to eq 'Makers'

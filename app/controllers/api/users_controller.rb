@@ -15,6 +15,10 @@ module Api
 
     def set_employer
       user = User.find(employer_params['user_id'])
+      if (!user.employer_id.nil? || !user.jobseeker_id.nil?)
+        render json: { status: 'update failed', error: 'user already assigned' }.to_json
+        return
+      end
       if user.update_attribute(:employer_id, employer_params['employer_id'])
         render json: { status: 'update success' }.to_json
       else
@@ -24,6 +28,10 @@ module Api
 
     def set_jobseeker
       user = User.find(jobseeker_params['user_id'])
+      if (!user.employer_id.nil? || !user.jobseeker_id.nil?)
+        render json: { status: 'update failed', error: 'user already assigned' }.to_json
+        return
+      end
       if user.update_attribute(:jobseeker_id, jobseeker_params['jobseeker_id'])
         render json: { status: 'update success' }.to_json
       else
