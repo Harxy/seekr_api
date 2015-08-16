@@ -1,5 +1,16 @@
 API GUIDE
 =========
+Creation of a User
+------------------
+ A user must be created and then assigned either as a jobseeker or an employer. The creation of a user therefore requires these three steps.
+
+    1. A user must be created using a POST to /api/users in the following format:
+
+         {email: 'example@example.com', password: 'password'}
+
+    2. A jobseeker or employer must be created 
+
+
 Endpoints
 ---------
   The API end points are as follows:
@@ -54,7 +65,7 @@ Endpoints
 ### DELETE
 
  /api/jobs/:id
- 
+
  Send an empty DELETE request to the end point to delete that job
 
  #### returns

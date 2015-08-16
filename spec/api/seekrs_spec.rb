@@ -14,8 +14,15 @@ describe 'the employers endpoint' do
   end
 end
 
-describe 'get the jobseekers from the endpoint' do
-  it 'successfully' do
+describe 'the jobseekers endpoint' do
+
+  it 'can successfully create' do
+    post api_jobseekers_path, attributes_for(:jobseeker).to_json, 'CONTENT_TYPE' => 'application/json'
+    get api_jobseekers_path
+    expect(latest_response['name']).to eq 'Bob Monkhouse'
+  end
+
+  it 'can successfully get' do
     create :jobseeker
     get api_jobseekers_path
     expect(latest_response['name']).to eq 'Bob Monkhouse'
