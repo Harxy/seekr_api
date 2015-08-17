@@ -2,7 +2,7 @@ API GUIDE
 =========
 Creation of a User
 ------------------
- A user must be created and then assigned either as a jobseeker or an employer. The creation of a user therefore requires these three steps.
+ A user must be created and then assigned either as a jobseeker or an employer. The creation of a user therefore requires these three steps (four for jobseekers).
 
     1. A user must be created using a POST to /api/users in the following format:
 
@@ -20,6 +20,15 @@ Creation of a User
         (for employer)    /api/set_employer     {user_id: 3, employer_id: 8}
 
     This will then make the user either a jobseeker or an employer. This cannot be changed once it has been done.
+
+
+    4. Skills. These must be added separately, and one by one, unfortunately.
+
+        For each skill you would like to add, access the api/skills endpoint and post:
+
+        {jobseeker_id: 2, skill: "Example Skill"}
+
+      This will then join the skill to the jobseeker.
 
 
 

@@ -93,3 +93,11 @@ describe 'can assign a user' do
     expect(latest_response).to include 'update success'
   end
 end
+
+describe 'can send a skill and assign it to a user' do
+  it 'successfully' do
+    jobseeker = create :jobseeker
+    post '/api/skills', {jobseeker_id: jobseeker.id.to_s, skill: 'Maths'}.to_json, 'CONTENT_TYPE' => 'application/json'
+    expect(latest_response).to include 'saved successfully'
+  end
+end
