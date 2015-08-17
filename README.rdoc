@@ -30,7 +30,24 @@ Creation of a User
 
       This will then join the skill to the jobseeker.
 
+Creation of a job
+-----------------
 
+    A job can be created with the following end point:
+
+        /api/jobs
+
+    Using the following format:
+
+        {title: 'A job', description: 'A description of a job', start_date: 13/09/2015, duration: '2 months', hours: 48, location: 'London', wage: 8.00}
+
+    Then create skills using the end point:
+
+      /api/skills
+
+    in the format:
+
+      {jobseeker_id: jobseeker.id.to_s, skill: 'Maths'}
 
 
 Endpoints
