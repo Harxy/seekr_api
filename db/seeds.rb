@@ -15,3 +15,6 @@ Employer.create(name:"General Assembly", description:"We train seals to hit keyb
 Job.create(title: 'Dream Maker', description: 'Ptolmememe', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97)
 
 User.create(email: 'bobby@bob.com', password_digest: '12345')
+
+
+Offer.create(job_id: 1, jobseeker_id: 1, accepted: true)

@@ -101,3 +101,14 @@ describe 'can send a skill and assign it to a user' do
     expect(latest_response).to include 'saved successfully'
   end
 end
+
+describe 'can accept and reject an offer' do
+  it 'successfully accepts an offer' do
+    job = create :job
+    jobseeker = create :jobseeker
+    employer = create :employer
+    post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
+    get 'api/offers/job/' + job.id.to_s
+    expect(JSON.parse(last_response.body)['accepted']).to eq true
+  end
+end
