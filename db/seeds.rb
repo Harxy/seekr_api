@@ -6,15 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Jobseeker.create(name:"Paul", email:"paul@gmail.com", location:"coolville")
-Jobseeker.create(name:"Rob", email:"rob@gmail.com", location:"lovelyville")
+Jobseeker.create(name:"Paul", email:"paul@gmail.com", location:"coolville", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/paulimg.png')
+Jobseeker.create(name:"Rob", email:"rob@seekr.com", location:"lovelyville", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/robimg.jpeg')
+Jobseeker.create(name:"Jack", email:"jack@seekr.com", location:"lovelyville", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/jackimg.png')
+Jobseeker.create(name:"Nikesh", email:"nikesh@seekr.com", location:"lovelyville", imageURL: 'https://s3-eu-west-1.amazonaws.com/makers-seekr/nikeshimg.jpeg')
+Jobseeker.create(name:"Simon", email:"simon@seekr.com", location:"lovelyville", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/simonimg.jpeg')
+Jobseeker.create(name:"Ptolemy", email:"ptolemy@seekr.com", location:"lovelyville", imageURL: 'https://s3-eu-west-1.amazonaws.com/makers-seekr/ptolemyimg.jpeg')
+Jobseeker.create(name:"Christian", email:"christian@seekr.com", location:"lovelyville", imageURL: 'https://s3-eu-west-1.amazonaws.com/makers-seekr/christianimg.jpeg')
 
-Employer.create(name:"Makers", description:"We love testing!", industry:"making developers who test", website:"www.makersacademy.com")
-Employer.create(name:"General Assembly", description:"We train seals to hit keyboards", industry:"flooding the market with poor programmers", website:"www.wecantmakeawebsite.clom")
+Employer.create(name:"Makers", description:"We love testing!", industry:"making developers who test", website:"www.makersacademy.com", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/makersacademylogo.png')
+Employer.create(name:"General Assembly", description:"We train seals to hit keyboards", industry:"flooding the market with poor programmers", website:"www.wecantmakeawebsite.clom", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/generalassemblylogo.png')
 
-Job.create(title: 'Dream Maker', description: 'Ptolmememe', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97)
+Job.create(title: 'Dream Maker', description: 'We need a Ptolemy! ', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97)
 
-User.create(email: 'bobby@bob.com', password_digest: '12345')
+User.create(email: 'Companyman@Company.com', password_digest: '12345', employer_id: 1)
+User.create(email: 'jack@seekr.com', password_digest: '12345', jobseeker_id: 3)
+User.create(email: 'simon@seekr.com', password_digest: '12345', jobseeker_id: 4)
+User.create(email: 'rob@seeker.com', password_digest: '12345', jobseeker_id: 2)
 
 
 Offer.create(job_id: 1, jobseeker_id: 1, accepted: true)
