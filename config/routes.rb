@@ -1,3 +1,6 @@
+
+require "monban/constraints/signed_in"
+
 Rails.application.routes.draw do
   root to: 'api/employers#index'
   namespace :api do
