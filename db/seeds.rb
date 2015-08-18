@@ -17,7 +17,7 @@ Jobseeker.create(name:"Christian", email:"christian@seekr.com", location:"lovely
 Employer.create(name:"Makers", description:"We love testing!", industry:"making developers who test", website:"www.makersacademy.com", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/makersacademylogo.png')
 Employer.create(name:"General Assembly", description:"We train seals to hit keyboards", industry:"flooding the market with poor programmers", website:"www.wecantmakeawebsite.clom", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/generalassemblylogo.png')
 
-Job.create(title: 'Dream Maker', description: 'We need a Ptolemy! ', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97)
+Job.create(title: 'Dream Maker', description: 'We need a Ptolemy! ', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97, requiredSkills: "Typing")
 
 
 Offer.create(job_id: 1, jobseeker_id: 1, accepted: true)

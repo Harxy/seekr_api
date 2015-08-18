@@ -8,5 +8,6 @@ FactoryGirl.define do
     hours "7"
     location "a bit too close"
     wage 8.90
+    requiredSkills "Typing  "
   end
 end
