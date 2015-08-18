@@ -37,8 +37,24 @@ Creation of a job
 
       {jobseeker_id: jobseeker.id.to_s, skill: 'Maths'}
 
+The three swipe possibilities
+-----------------------------
 
+    Swipe left - reject
 
+      This should call the following api call to api/offers
+
+      {job_id: 3, job_seeker_id: 5, accepted: false}
+
+    Swipe right - Do nothing
+
+      This is the equivalent of 'shortlisting' as it does nothing but the jobseeker will still be in the list next time it is called
+
+    Offer job - accepted
+
+      This will be a button and should send a post request to api/offers
+
+      {job_id: 3, job_seeker_id: 5, accepted: false}
 
 Endpoints
 ---------
