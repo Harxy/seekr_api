@@ -55,14 +55,12 @@ end
 
 describe 'can create a new job by posting to an end point' do
   it 'successfully' do
-    employer = create :employer
     post api_jobs_path, attributes_for(:job).to_json, 'CONTENT_TYPE' => 'application/json'
     get api_jobs_path
     expect(latest_response['title']).to eq 'Dream Makerneer'
   end
 
   it 'only if a title is entered' do
-    employer = create :employer
     post api_jobs_path, attributes_for(:job, title: '').to_json, 'CONTENT_TYPE' => 'application/json'
     get api_jobs_path
     expect(latest_response).to eq nil
@@ -90,7 +88,6 @@ describe 'can accept and reject an offer' do
   it 'successfully accepts an offer' do
     job = create :job
     jobseeker = create :jobseeker
-    employer = create :employer
     post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
     get 'api/offers/job/' + job.id.to_s
     expect(JSON.parse(last_response.body)['accepted']).to eq true
