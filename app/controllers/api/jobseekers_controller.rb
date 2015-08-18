@@ -20,7 +20,7 @@ module Api
     end
 
     def jobseeker_params
-      params.permit(:name, :email, :location)
+      params.permit(:name, :email, :location, :PrimarySkill, :SecondarySkill)
     end
   end
 end
