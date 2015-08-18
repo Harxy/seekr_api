@@ -54,7 +54,7 @@ The three swipe possibilities
 
       This will be a button and should send a post request to api/offers
 
-      {job_id: 3, job_seeker_id: 5, accepted: false}
+      {job_id: 3, job_seeker_id: 5, accepted: true}
 
 Endpoints
 ---------
