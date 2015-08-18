@@ -1,28 +1,16 @@
 API GUIDE
 =========
-Creation of a User
+Creation of a Jobseeker/employer
 ------------------
- A user must be created and then assigned either as a jobseeker or an employer. The creation of a user therefore requires these three steps (four for jobseekers).
 
-    1. A user must be created using a POST to /api/users in the following format:
 
-         {email: 'example@example.com', password: 'password'}
-
-    2. A jobseeker or employer must be created. This is done using a POST request to api/employers or api/jobseekers that look like this:
+    1. A jobseeker or employer must be created. This is done using a POST request to api/employers or api/jobseekers that look like this:
 
         (for jobseeker){ name: "Example User", email: "example@example.com", location: "London" }
         (for employer) { name: "Example Employer", description: "We are an example", industry: "Making examples", website: "www.examplewebsite.com"}
 
-    3. SUPER IMPORTANT. The user must then be linked either to the created jobseeker or the created employer. This is done from the endpoint:
 
-      |       FOR       |      END POINT     |     EXAMPLE REQUEST CONTENT      |
-        (for jobseeker)   /api/set_jobseeker    {user_id: 3, jobseeker_id: 6 }
-        (for employer)    /api/set_employer     {user_id: 3, employer_id: 8}
-
-    This will then make the user either a jobseeker or an employer. This cannot be changed once it has been done.
-
-
-    4. Skills. These must be added separately, and one by one, unfortunately.
+    2. Skills. These must be added separately, and one by one, unfortunately.
 
         For each skill you would like to add, access the api/skills endpoint and post:
 
@@ -48,6 +36,8 @@ Creation of a job
     in the format:
 
       {jobseeker_id: jobseeker.id.to_s, skill: 'Maths'}
+
+
 
 
 Endpoints
