@@ -5,15 +5,12 @@ Rails.application.routes.draw do
   root to: 'api/employers#index'
   namespace :api do
     resource :session, only: [:new, :create, :destroy]
-    resources :users, only: [:new, :create]
     resources :employers
     resources :jobseekers
     resources :jobs
     resources :skills
     resources :offers
     get 'jobs/:id/jobseekers', :to => 'jobs#jobseekers_show'
-    post 'users/set_employer', :to => 'users#set_employer'
-    post 'users/set_jobseeker', :to => 'users#set_jobseeker'
     get 'offers/job/:id', :to => 'offers#job_offers'
   end
 
