@@ -8,7 +8,9 @@ FactoryGirl.define do
     hours "7"
     location "a bit too close"
     wage 8.90
-    requiredSkills "Typing  "
+    requiredSkills "Typing"
+    contactName "Simon"
+    contactEmail "simon@seekr.com"
     employer
   end
 end
