@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :offers
     get 'jobs/:id/jobseekers', :to => 'jobs#jobseekers_show'
     get 'offers/job/:id', :to => 'offers#job_offers'
-    post 'offers/all/:id', :to => 'offers#return_all'
+    get 'offers/all/:id', :to => 'offers#return_all'
     post 'offers/accepted', :to => 'offers#return_accepted'
   end
 
