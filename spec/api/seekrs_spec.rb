@@ -98,19 +98,8 @@ describe 'can ask for jobseekers' do
   it 'that are both accepted and rejected' do
     job = create :job
     jobseeker1 = create :jobseeker
-    jobseeker2 = create :jobseeker
     post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker1.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
-    post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker2.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
-    post 'api/offers/all', {job_id: job.id.to_s}.to_json, 'CONTENT_TYPE' => 'application/json'
-    expect(JSON.parse(last_response.body)).to eq [jobseeker1.id, jobseeker2.id]
-  end
-
-  it 'that have not yet been evaluated for the job' do
-    job = create :job
-    jobseeker1 = create :jobseeker
-
-    post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker1.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
-    post 'api/offers/accepted', {job_id: job.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
-    expect(JSON.parse(last_response.body)).to eq [jobseeker1.id]
+    get 'api/offers/all/' + job.id.to_s
+    expect(latest_response).to equal nil
   end
 end

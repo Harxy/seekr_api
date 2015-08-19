@@ -28,14 +28,6 @@ module Api
         render json: jobseekers
       end
 
-      # def return_all
-      #    offers = Offer.where({job_id: params[:id]})
-      #    array = []
-      #    offers.each do |x|
-      #      array << x.jobseeker_id
-      #    end
-      #    render json: array
-      # end
 
       private
 
