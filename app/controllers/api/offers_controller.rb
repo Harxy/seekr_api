@@ -17,13 +17,22 @@ module Api
     end
 
     def return_all
-       offers = Offer.where({job_id: params[:id]})
-       array = []
-       offers.each do |x|
-         array << x.jobseeker_id
-       end
-       render json: array
+      jobseekers = Jobseekers.all
+      offers = Offer.where({job_id: params[:id]})
+      offers.each do |x|
+        jobseekers.delete x.jobseeker_id
+      end
+      render json: jobseekers
     end
+
+    # def return_all
+    #    offers = Offer.where({job_id: params[:id]})
+    #    array = []
+    #    offers.each do |x|
+    #      array << x.jobseeker_id
+    #    end
+    #    render json: array
+    # end
 
     private
 
