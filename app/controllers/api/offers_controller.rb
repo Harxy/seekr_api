@@ -20,14 +20,18 @@ module Api
       end
 
       def return_all
-
-
         jobseekers = Jobseeker.all.reject do |job_seeker|
           !job_seeker.offers.where("job_id = ?", params[:id]).empty?
         end
         render json: jobseekers
       end
 
+      def show_job_offers
+        jobs = Job.all.select do |j|
+          !j.offers.where("jobseeker_id = ?", params[:id]).empty?
+        end
+        render json: jobs
+      end
 
       private
 

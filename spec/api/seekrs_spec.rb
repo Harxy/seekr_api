@@ -103,3 +103,13 @@ describe 'can ask for jobseekers' do
     expect(latest_response).to equal nil
   end
 end
+
+describe 'can view all offers for a specific jobseeker' do
+  it 'successfully' do
+    job = create :job
+    jobseeker = create :jobseeker
+    post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
+    get 'api/jobseeker/' + jobseeker.id.to_s + '/offers'
+    expect(latest_response['title']).to include 'Dream Makerneer'
+  end
+end
