@@ -1,4 +1,4 @@
-  module Api
+module Api
   class OffersController < ApplicationController
     def create
       offer = Offer.new(offer_params)
@@ -16,12 +16,18 @@
     end
 
     def return_all
+      require 'byebug'
+      byebug
+      jsarray = []
       jobseekers = Jobseeker.all
+      jobseekers.each do |x|
+        jsarray << x
+      end
       offers = Offer.where(job_id: params[:id])
       offers.each do |x|
-        jobseekers.delete x.jobseeker_id
+        jsarray.delete x.jobseeker_id
       end
-      render json: jobseekers
+      render json: jsarray
     end
 
     # def return_all
