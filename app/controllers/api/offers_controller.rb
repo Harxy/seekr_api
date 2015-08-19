@@ -34,6 +34,7 @@ module Api
           job.attributes.merge(imageURL: job.imageURL)
         end
         render json: jobs
+        
       end
 
       private
