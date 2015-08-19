@@ -93,3 +93,15 @@ describe 'can accept and reject an offer' do
     expect(JSON.parse(last_response.body)['accepted']).to eq true
   end
 end
+
+describe 'can ask for jobseekers accepted or rejected for job' do
+  it 'successfully' do
+    job = create :job
+    jobseeker1 = create :jobseeker
+    jobseeker2 = create :jobseeker
+    post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker1.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
+    post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker2.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
+    post 'api/offers/all', {job_id: job.id.to_s}.to_json, 'CONTENT_TYPE' => 'application/json'
+    expect(JSON.parse(last_response.body)).to eq [jobseeker1.id, jobseeker2.id]
+  end
+end
