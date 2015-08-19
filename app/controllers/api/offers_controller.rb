@@ -23,7 +23,7 @@ module Api
 
 
         jobseekers = Jobseeker.all.reject do |job_seeker|
-          job_seeker.offers.where("job_id = ?", params[:id])
+          !job_seeker.offers.where("job_id = ?", params[:id]).empty?
         end
         render json: jobseekers
       end
