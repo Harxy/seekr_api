@@ -5,5 +5,6 @@ FactoryGirl.define do
     description "We love testing!"
     industry "making developers who test"
     website "www.makersacademy.com"
+    imageURL "www.image.com"
   end
 end

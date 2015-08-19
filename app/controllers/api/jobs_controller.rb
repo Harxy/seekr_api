@@ -1,7 +1,9 @@
 module Api
   class JobsController < ApplicationController
     def index
-      jobs = Job.all
+      jobs = Job.all.map do |job|
+        job.attributes.merge(imageURL: job.imageURL)
+      end
       render json: jobs
     end
 
