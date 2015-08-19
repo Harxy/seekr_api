@@ -1,5 +1,9 @@
 module Api
     class OffersController < ApplicationController
+      def index
+        offers = Offer.all
+        render json: offers
+      end
       def create
         offer = Offer.new(offer_params)
         if offer.save
