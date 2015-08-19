@@ -16,7 +16,7 @@ module Api
       end
 
       def return_all
-        jobseekers = Jobseeker.all.reject do |job_seeker|
+        jobseekers = Jobseeker.all.select do |job_seeker|
           job_seeker.offers.empty?
         end
         render json: jobseekers
