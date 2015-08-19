@@ -30,6 +30,9 @@ module Api
         jobs = Job.all.select do |j|
           !j.offers.where("jobseeker_id = ?", params[:id]).empty?
         end
+        jobs = jobs.map do |job|
+          job.attributes.merge(imageURL: job.imageURL)
+        end
         render json: jobs
       end
 
