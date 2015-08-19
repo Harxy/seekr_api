@@ -1,24 +1,25 @@
-module Api
+  module Api
   class OffersController < ApplicationController
-
     def create
       offer = Offer.new(offer_params)
       if offer.save
-        render json: {status: 'offer successfully created', offer_id: offer.id}.to_json
+        render json: { status: 'offer successfully created', offer_id: offer.id }.to_json
       else
-        render json: {status: 'failed', error: offer.errors.first}.to_json
+        render json: { status: 'failed', error: offer.errors.first }.to_json
       end
     end
 
     def job_offers
       job = Job.find(params[:id])
-      job_offers = Offer.find_by({job_id: job.id, accepted: true})
+      job_offers = Offer.find_by(job_id: job.id, accepted: true)
       render json: job_offers
     end
 
     def return_all
-      jobseekers = Jobseekers.all
-      offers = Offer.where({job_id: params[:id]})
+      require 'byebug'
+      byebug
+      jobseekers = Jobseeker.all
+      offers = Offer.where(job_id: params[:id])
       offers.each do |x|
         jobseekers.delete x.jobseeker_id
       end
