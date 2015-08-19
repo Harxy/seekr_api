@@ -16,8 +16,6 @@
     end
 
     def return_all
-      require 'byebug'
-      byebug
       jobseekers = Jobseeker.all
       offers = Offer.where(job_id: params[:id])
       offers.each do |x|
