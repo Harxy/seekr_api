@@ -22,7 +22,7 @@ module Api
       def return_all
 
 
-        jobseekers = Jobseeker.all.select do |job_seeker|
+        jobseekers = Jobseeker.all.reject do |job_seeker|
           job_seeker.offers.where("job_id = ?", params[:id])
         end
         render json: jobseekers
