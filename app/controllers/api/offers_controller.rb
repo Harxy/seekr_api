@@ -16,8 +16,10 @@ module Api
       end
 
       def return_all
+
+
         jobseekers = Jobseeker.all.select do |job_seeker|
-          job_seeker.offers[job_id: params[:id]].empty?
+          job_seeker.offers.where("job_id = ?", params[:id])
         end
         render json: jobseekers
       end
