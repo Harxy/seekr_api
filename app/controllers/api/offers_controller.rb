@@ -31,6 +31,7 @@ module Api
           !j.offers.where("jobseeker_id = ?", params[:id]).empty?
         end
         render json: jobs
+        
       end
 
       private
