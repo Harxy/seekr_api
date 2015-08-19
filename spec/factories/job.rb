@@ -9,5 +9,6 @@ FactoryGirl.define do
     location "a bit too close"
     wage 8.90
     requiredSkills "Typing  "
+    employer
   end
 end
