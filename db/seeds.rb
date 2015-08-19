@@ -19,7 +19,7 @@ Employer.create(name:"General Assembly", description:"We train seals to hit keyb
 
 Job.create(title: 'Dream Maker', description: 'We need a Ptolemy! ', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97, requiredSkills: "Typing", employer_id: 1)
 Job.create(title: 'Dream Breaker', description: 'Someone to show Makers the harsh reality of life', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97, requiredSkills: "Writing", employer_id: 1)
-Job.create(title: 'Zoo Keeper', description: 'Someone to feed the seals', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97, requiredSkills: "Security" employer_id: 2)
+Job.create(title: 'Zoo Keeper', description: 'Someone to feed the seals', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 8.97, requiredSkills: "Security", employer_id: 2)
 
 
 Offer.create(job_id: 1, jobseeker_id: 1, accepted: true)
