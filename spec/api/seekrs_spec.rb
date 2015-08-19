@@ -105,11 +105,10 @@ describe 'can ask for jobseekers' do
     expect(JSON.parse(last_response.body)).to eq [jobseeker1.id, jobseeker2.id]
   end
 
-  it 'that are accepted only' do
+  it 'that have not yet been evaluated for the job' do
     job = create :job
     jobseeker1 = create :jobseeker
-    jobseeker2 = create :jobseeker
-    get 'api/offers/all/1'
+
     post 'api/offers', {job_id: job.id.to_s, jobseeker_id: jobseeker1.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
     post 'api/offers/accepted', {job_id: job.id.to_s, accepted: true}.to_json, 'CONTENT_TYPE' => 'application/json'
     expect(JSON.parse(last_response.body)).to eq [jobseeker1.id]
