@@ -17,7 +17,7 @@ module Api
     end
 
     def return_all
-       offers = Offer.find_by({job_id: params[:id]})
+       offers = Offer.where({job_id: params[:id]})
        array = []
        offers.each do |x|
          array << x.jobseeker_id
