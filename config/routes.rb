@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'jobs/:id/jobseekers', :to => 'jobs#jobseekers_show'
     get 'offers/job/:id', :to => 'offers#job_offers'
     post 'offers/all', :to => 'offers#return_all'
+    post 'offers/accepted', :to => 'offers#return_accepted'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
