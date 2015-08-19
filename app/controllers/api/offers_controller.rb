@@ -16,12 +16,8 @@ module Api
     end
 
     def return_all
-      offers = Offer.where(job_id: params[:id])
-      array = []
-      offers.each do |x|
-        array << x.jobseeker_id
-      end
-      render json: array
+      offers = Jobseekers.where(job_id: params[:id])
+      render json: offers
     end
 
     def return_accepted
@@ -37,6 +33,6 @@ module Api
 
     def offer_params
       params.permit(:job_id, :jobseeker_id, :accepted)
-   end
- end
+    end
+  end
 end
