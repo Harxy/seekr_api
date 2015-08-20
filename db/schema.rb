@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819161821) do
+ActiveRecord::Schema.define(version: 20150820092045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150819161821) do
     t.string   "requiredSkills"
     t.string   "contactName"
     t.string   "contactEmail"
+    t.string   "locationmap"
   end
 
   add_index "jobs", ["employer_id"], name: "index_jobs_on_employer_id", using: :btree
