@@ -27,9 +27,9 @@ Employer.create(name:"General Assembly", description:"We train seals to hit keyb
 Employer.create(name:"Coca Cola", description:"We make delicious sugary beverages", industry:"Soft Drinks", website:"www.cocacola.com", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/Coke.jpg')
 Employer.create(name:"Culpeper", description:"Like, a bit shit", industry:"Hard Liquor", website:"www.theculpeper.com", imageURL:'https://s3-eu-west-1.amazonaws.com/makers-seekr/culpeper.png')
 
-Job.create(title: 'Dream Maker', description: 'We need a Ptolemy! ', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 10.50, requiredSkills: "Writing", employer_id: 1, contactName: "Sam", contactEmail: "sam@makers.com" )
-Job.create(title: 'Dream Breaker', description: 'Someone to show Makers the harsh reality of life', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 7.80, requiredSkills: "Security", employer_id: 1, contactName: "Dave", contactEmail: "dave@makers.com")
-Job.create(title: 'Zoo Keeper', description: 'Someone to feed the seals', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'London', wage: 9.60, requiredSkills: "Dog walking", employer_id: 2, contactName: "Steve", contactEmail: "Steve@ga.com")
+Job.create(title: 'Dream Maker', description: 'We need a Ptolemy! ', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'NW51PE', wage: 10.50, requiredSkills: "Writing", employer_id: 1, contactName: "Sam", contactEmail: "sam@makers.com" )
+Job.create(title: 'Dream Breaker', description: 'Someone to show Makers the harsh reality of life', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'SW152JQ', wage: 7.80, requiredSkills: "Security", employer_id: 1, contactName: "Dave", contactEmail: "dave@makers.com")
+Job.create(title: 'Zoo Keeper', description: 'Someone to feed the seals', start_date: '14/09/2015', duration: '30 weeks', hours: '45', location: 'E152JS', wage: 9.60, requiredSkills: "Dog walking", employer_id: 2, contactName: "Steve", contactEmail: "Steve@ga.com")
 
 
 Offer.create(job_id: 1, jobseeker_id: 1, accepted: true)
